@@ -1,4 +1,4 @@
 Exoticnesia
 ===========
 
-chayang kamuh celaluh :*
+assalamualaikum
