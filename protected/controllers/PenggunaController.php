@@ -114,7 +114,9 @@ class PenggunaController extends Controller
 			$pt->username = $model->username;
 			$profil->username = $model->username;
 
-			$profil->avatar=CUploadedFile::getInstance($profil,'avatar');
+			$foto=CUploadedFile::getInstance($profil,'avatar');
+			$profil->avatar = $foto->name;
+			$path=Yii::app()->basePath . '/../images/avatar/';
 
 			if($pt->save() && $pt->validate())
 			{
@@ -122,8 +124,9 @@ class PenggunaController extends Controller
 				{
 					if($profil->save() && $profil->validate())
 					{
-						if(!empty($profil->avatar)){
-							$profil->avatar->saveAs(Yii::app()->basePath . '/../images/avatar/' . $profil->username.'.jpg');
+						if(!empty($foto)){
+							$profil->avatar = $foto->name;
+							$foto->saveAs($path.$foto);
 						}
 						
 						$email = Yii::app()->email;
@@ -201,12 +204,14 @@ class PenggunaController extends Controller
 			$pt->username = $model->username;
 			$model->username = $profil->username;
 
-			$profil->avatar=CUploadedFile::getInstance($profil,'avatar');
+			$foto=CUploadedFile::getInstance($profil,'avatar');
+			$path=Yii::app()->basePath . '/../images/avatar/';
+			$profil->avatar = $foto->name;
 
 			if($model->update() && $model->validate()) {
 				if($profil->update() && $profil->validate()) {
-					if(!empty($profil->avatar)){
-						$profil->avatar->saveAs(Yii::app()->basePath . '/../images/avatar/' . $profil->username.'.jpg');
+					if(!empty($foto)){
+						$foto->saveAs($path.$foto);
 					}
 					$this->redirect(array('view', 'id'=>$model->username));
 				}

@@ -2509,3 +2509,9 @@ in D:\wamp\www\Exoticnesia\index.php (13)
 2013/04/15 08:35:07 [warning] [application] Failed to set unsafe attribute "avatar" of "Profil".
 in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (199)
 in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/15 16:41:40 [warning] [application] Failed to set unsafe attribute "avatar" of "Profil".
+in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (202)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/15 16:42:53 [warning] [application] Failed to set unsafe attribute "avatar" of "Profil".
+in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (202)
+in D:\wamp\www\Exoticnesia\index.php (13)
