@@ -24,19 +24,28 @@
 		<?php echo $form->textField($model,'username',array(
 														'size'=>20,
 														'maxlength'=>20,
+														'disabled'=>!$model->isNewRecord
 														)); ?>
 		<?php echo $form->error($model,'username'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($pt,'password'); ?>
-		<?php echo $form->passwordField($pt,'password',array('size'=>20,'maxlength'=>20)); ?>
+		<?php echo $form->passwordField($pt,'password',array(
+														'size'=>20,
+														'maxlength'=>20,
+														'disabled'=>!$model->isNewRecord
+														)); ?>
 		<?php echo $form->error($pt,'password'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($pt,'email'); ?>
-		<?php echo $form->textField($pt,'email',array('size'=>40,'maxlength'=>40)); ?>
+		<?php echo $form->textField($pt,'email',array(
+													'size'=>40,
+													'maxlength'=>40,
+													'disabled'=>!$model->isNewRecord
+												)); ?>
 		<?php echo $form->error($pt,'email'); ?>
 	</div>
 
@@ -65,19 +74,6 @@
 		</div>
 		<?php echo $form->error($profil,'sex'); ?>
 	</div>
-
-	<!-- <div class="row">
-		<?php echo $form->labelEx($model,'kodeDaftar'); ?>
-		<?php echo $form->textField($model,'kodeDaftar',array('size'=>15,'maxlength'=>15)); ?>
-		<?php echo $form->error($model,'kodeDaftar'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'isAktif'); ?>
-		<?php echo $form->textField($model,'isAktif'); ?>
-		<?php echo $form->error($model,'isAktif'); ?>
-	</div>
- -->
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Daftar' : 'Save'); ?>

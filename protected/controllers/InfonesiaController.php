@@ -106,7 +106,7 @@ class InfonesiaController extends Controller
 
     public function actionRating() {
 
-     	$query = 'select namadaerah, username from rating where namadaerah = \''.$_POST['id'].'\' AND username = \''.Yii::app()->user->id.'\'';
+    	$query = 'select namadaerah, username from rating where namadaerah = \''.$_POST['id'].'\' AND username = \''.Yii::app()->user->id.'\'';
         $models = Yii::app()->db->createCommand($query)->queryRow();
 
         if(Empty($models['username'])) {
@@ -115,7 +115,7 @@ class InfonesiaController extends Controller
             $rating->nilai = $_POST['rate'];
             $rating->username = Yii::app()->user->id;
             $rating->save();
-        }
+        }        
     }
 
     public function actionSumRating($model) {

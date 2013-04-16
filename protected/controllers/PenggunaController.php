@@ -115,7 +115,7 @@ class PenggunaController extends Controller
 			$profil->username = $model->username;
 
 			$foto=CUploadedFile::getInstance($profil,'avatar');
-			$profil->avatar = $foto->name;
+			// $profil->avatar = $foto->name;
 			$path=Yii::app()->basePath . '/../images/avatar/';
 
 			if($pt->save() && $pt->validate())
@@ -206,15 +206,21 @@ class PenggunaController extends Controller
 
 			$foto=CUploadedFile::getInstance($profil,'avatar');
 			$path=Yii::app()->basePath . '/../images/avatar/';
-			$profil->avatar = $foto->name;
+			// $profil->avatar = $foto->name;
 
-			if($model->update() && $model->validate()) {
-				if($profil->update() && $profil->validate()) {
-					if(!empty($foto)){
+			if($model->save() && $model->validate()) {
+				if(!empty($foto)){
+					$profil->avatar = $foto->name;
+					if($profil->save() && $profil->validate()) {
 						$foto->saveAs($path.$foto);
 					}
-					$this->redirect(array('view', 'id'=>$model->username));
 				}
+				else{
+					$profil->save();
+					$profil->validate(); 
+				}
+				
+				$this->redirect(array('view', 'id'=>$model->username));
 			}
 		}
 
