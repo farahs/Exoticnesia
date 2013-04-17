@@ -17,6 +17,7 @@ class Urlpic extends CActiveRecord
 	 * @param string $className active record class name.
 	 * @return Urlpic the static model class
 	 */
+	public $image;
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -44,6 +45,7 @@ class Urlpic extends CActiveRecord
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('namadaerah, urlpic', 'safe', 'on'=>'search'),
+			array('image','file','types'=>'jpeg,jpg,gif,png','allowEmpty'=>false),
 		);
 	}
 

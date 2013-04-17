@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 14, 2013 at 03:32 PM
+-- Generation Time: Apr 17, 2013 at 06:11 AM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -53,15 +53,7 @@ CREATE TABLE IF NOT EXISTS `container` (
   PRIMARY KEY (`id`),
   KEY `username` (`username`),
   KEY `namadaerah` (`namadaerah`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `container`
---
-
-INSERT INTO `container` (`id`, `username`, `namadaerah`) VALUES
-(1, 'nikenafc', 'Amed'),
-(2, 'nikenafc', 'Amed');
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 -- --------------------------------------------------------
 
@@ -82,10 +74,13 @@ CREATE TABLE IF NOT EXISTS `foto` (
 --
 
 INSERT INTO `foto` (`username`, `nama`, `url`) VALUES
+('farahs', 'Farah Shafira', 'messi lego.jpg'),
+('farahs', 'Farah Shafira', 'tumblr1.jpg'),
 ('nikenafc', 'nikenp', 'amed1.jpg'),
 ('nikenafc', 'nikenp', 'bun3.jpg'),
 ('sipuji', 'Puji Martadinata', 'amed1.jpg'),
-('sipuji', 'Puji Martadinata', 'amed4.jpg');
+('sipuji', 'Puji Martadinata', 'amed4.jpg'),
+('sipuji', 'Puji Martadinata', 'pooh~3.gif');
 
 -- --------------------------------------------------------
 
@@ -144,6 +139,7 @@ CREATE TABLE IF NOT EXISTS `pengguna` (
 --
 
 INSERT INTO `pengguna` (`username`, `kodeDaftar`, `isAktif`) VALUES
+('farahs', 'f3b2d7627dbb1407fb4112bcc169ab01', 1),
 ('nikenafc', '435caa044b0db1a43fe6b302d7fa9403', 1),
 ('sipuji', 'f96e78167ac5128355cdef080692fb31', 1);
 
@@ -226,6 +222,7 @@ CREATE TABLE IF NOT EXISTS `pengunjungterdaftar` (
 
 INSERT INTO `pengunjungterdaftar` (`username`, `password`, `email`) VALUES
 ('admin', 'admin', 'admin@gmail.com'),
+('farahs', 'leomessi', 'farahshafira@live.com'),
 ('nikenafc', 'nikenniken', 'nikenafc@gmail.com'),
 ('sipuji', '20maret1992', 'sipuji.dinata@gmail.com');
 
@@ -266,8 +263,9 @@ CREATE TABLE IF NOT EXISTS `profil` (
 --
 
 INSERT INTO `profil` (`username`, `nama`, `contact`, `sex`, `avatar`) VALUES
-('nikenafc', 'nikenp', '', 'Female', 'nikenafc.jpg'),
-('sipuji', 'Puji Martadinata', '081219657780', 'Male', 'sipuji.jpg');
+('farahs', 'Farah Shafira', '', 'Female', 'baby.jpg'),
+('nikenafc', 'nikenp', '1234', 'Male', 'poohlagilagi.gif'),
+('sipuji', 'Puji Martadinata', '081219657780', 'Female', 'sipuji.jpg');
 
 -- --------------------------------------------------------
 
@@ -278,11 +276,9 @@ INSERT INTO `profil` (`username`, `nama`, `contact`, `sex`, `avatar`) VALUES
 CREATE TABLE IF NOT EXISTS `rating` (
   `namadaerah` varchar(50) NOT NULL,
   `nilai` int(11) NOT NULL,
-  `username` varchar(10) NOT NULL,
+  `username` varchar(20) NOT NULL,
   PRIMARY KEY (`namadaerah`,`nilai`,`username`),
-  UNIQUE KEY `username_2` (`username`),
-  UNIQUE KEY `nilai` (`nilai`),
-  UNIQUE KEY `namadaerah` (`namadaerah`),
+  KEY `namadaerah` (`namadaerah`),
   KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -291,7 +287,13 @@ CREATE TABLE IF NOT EXISTS `rating` (
 --
 
 INSERT INTO `rating` (`namadaerah`, `nilai`, `username`) VALUES
-('Bulukumba', 3, 'sipuji');
+('Bulukumba', 5, 'farahs'),
+('Gunung Maras', 4, 'farahs'),
+('Bunaken', 3, 'nikenafc'),
+('Amed', 2, 'sipuji'),
+('Bulukumba', 3, 'sipuji'),
+('Bunaken', 4, 'sipuji'),
+('Gili Trawangan', 2, 'sipuji');
 
 -- --------------------------------------------------------
 
@@ -306,7 +308,7 @@ CREATE TABLE IF NOT EXISTS `review` (
   `username` varchar(10) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `username` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 --
 -- Dumping data for table `review`
@@ -525,8 +527,8 @@ ALTER TABLE `container`
 -- Constraints for table `foto`
 --
 ALTER TABLE `foto`
-  ADD CONSTRAINT `foto_ibfk_3` FOREIGN KEY (`username`) REFERENCES `profil` (`username`),
-  ADD CONSTRAINT `foto_ibfk_2` FOREIGN KEY (`nama`) REFERENCES `profil` (`nama`);
+  ADD CONSTRAINT `foto_ibfk_2` FOREIGN KEY (`nama`) REFERENCES `profil` (`nama`),
+  ADD CONSTRAINT `foto_ibfk_3` FOREIGN KEY (`username`) REFERENCES `profil` (`username`);
 
 --
 -- Constraints for table `infonesia`
@@ -562,8 +564,8 @@ ALTER TABLE `profil`
 -- Constraints for table `rating`
 --
 ALTER TABLE `rating`
-  ADD CONSTRAINT `rating_ibfk_1` FOREIGN KEY (`namadaerah`) REFERENCES `infonesia` (`namadaerah`),
-  ADD CONSTRAINT `rating_ibfk_2` FOREIGN KEY (`username`) REFERENCES `pengguna` (`username`);
+  ADD CONSTRAINT `rating_ibfk_2` FOREIGN KEY (`username`) REFERENCES `pengguna` (`username`),
+  ADD CONSTRAINT `rating_ibfk_1` FOREIGN KEY (`namadaerah`) REFERENCES `infonesia` (`namadaerah`);
 
 --
 -- Constraints for table `review`
