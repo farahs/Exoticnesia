@@ -28,7 +28,7 @@ class PenggunaController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','create','verifikasi','lupa','daftar','kirim','kirimpwd','notiflupa'),
+				'actions'=>array('index','create','verifikasi','lupa','daftar','kirim','kirimpwd','notiflupa','salahemail'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -135,13 +135,19 @@ class PenggunaController extends Controller
 						$email->subject = "[Exoticnesia] Verifikasi Pendaftaran";
 						$email->view='emailDaftar';
 						$email->viewVars=array('pengguna' => $model, 'pengunjungterdaftar' => $pt, 'profil'=>$profil);
-						//$email->send();
-						//testing kirim jadi tampilan view
-						//$this->redirect('kirim',array('pengguna' => $model, 'pengunjungterdaftar' => $pt, 'profil'=>$profil));
-						//if($email->send()){
-							//menampilkan notifikasi
-							$this->redirect(array('daftar','id'=>$model->username));
-						//}
+						// if($email->send()){
+						// 	$this->redirect(array('daftar','id'=>$model->username));
+						// }	
+						// else{
+							$this->redirect(array('salahemail','id'=>$model->username));
+							
+						// }
+						// testing kirim jadi tampilan view
+						// $this->redirect('kirim',array('pengguna' => $model, 'pengunjungterdaftar' => $pt, 'profil'=>$profil));
+						// if($email->send()){
+						// 	//menampilkan notifikasi
+						// 	$this->redirect(array('daftar','id'=>$model->username));
+						// }
 					}
 				} 
 			}
@@ -168,6 +174,20 @@ class PenggunaController extends Controller
 		$this->render('daftar',array(
 			'model'=>$this->loadModel($id),
 		));
+	}
+
+	public function actionSalahemail($id)
+	{	
+		//hapus yg di database
+		$model=$this->loadModel($id);
+		$pt=Pengunjungterdaftar::model()->find('username=?',array($this->id));
+		$profil=Profil::model()->find('username=?',array($this->id));
+
+		$profil->delete();
+		$model->delete();
+		$pt->delete();
+
+		$this->render('salahemail');
 	}
 
 	/**

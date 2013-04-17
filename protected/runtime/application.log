@@ -5739,3 +5739,30 @@ Stack trace:
 REQUEST_URI=/Exoticnesia/index.php?r=pengguna/update&id=farahs
 HTTP_REFERER=http://localhost/Exoticnesia/index.php?r=pengguna/view&id=farahs
 ---
+2013/04/16 12:03:55 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`exoticnesia`.`pengguna`, CONSTRAINT `pengguna_ibfk_1` FOREIGN KEY (`username`) REFERENCES `pengunjungterdaftar` (`username`)). The SQL statement executed was: DELETE FROM `pengunjungterdaftar` WHERE `pengunjungterdaftar`.`username`='dadadada'.
+in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (187)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/16 12:03:55 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`exoticnesia`.`pengguna`, CONSTRAINT `pengguna_ibfk_1` FOREIGN KEY (`username`) REFERENCES `pengunjungterdaftar` (`username`)). The SQL statement executed was: DELETE FROM `pengunjungterdaftar` WHERE `pengunjungterdaftar`.`username`='dadadada'' in D:\wamp\www\yii\framework\db\CDbCommand.php:357
+Stack trace:
+#0 D:\wamp\www\yii\framework\db\ar\CActiveRecord.php(1745): CDbCommand->execute()
+#1 D:\wamp\www\yii\framework\db\ar\CActiveRecord.php(1168): CActiveRecord->deleteByPk('dadadada')
+#2 D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php(187): CActiveRecord->delete()
+#3 [internal function]: PenggunaController->actionSalahemail('dadadada')
+#4 D:\wamp\www\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(PenggunaController), Array)
+#5 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(PenggunaController), Object(ReflectionMethod), Array)
+#6 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 D:\wamp\www\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 D:\wamp\www\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 D:\wamp\www\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 D:\wamp\www\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 D:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('salahemail')
+#15 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('pengguna/salahe...')
+#16 D:\wamp\www\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#17 D:\wamp\www\Exoticnesia\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/Exoticnesia/index.php?r=pengguna/salahemail&id=dadadada
+HTTP_REFERER=http://localhost/Exoticnesia/index.php?r=pengguna/create
+---

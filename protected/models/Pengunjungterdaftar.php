@@ -42,7 +42,7 @@ class Pengunjungterdaftar extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('username, password, email', 'required'),
-			array('username, password, email', 'unique'),
+			array('username, email', 'unique'),
 			array('username, password', 'length', 'max'=>20),
 			array('email', 'length', 'max'=>40),
 			array('email', 'email', 'checkMX'=>true, 'message'=>'The email incorrect'),

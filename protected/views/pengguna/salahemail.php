@@ -6,5 +6,5 @@
 ?>
 
 <br/>
-<p> Pendaftaran berhasil!<br/>
-Email verifikasi telah dikirimkan ke alamat email anda.<p>
+<p> Pendaftaran gagal!<br/>
+Email anda salah.<p>
