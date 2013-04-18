@@ -45,11 +45,7 @@ class Pengunjungterdaftar extends CActiveRecord
 			array('username, email', 'unique'),
 			array('username, password', 'length', 'max'=>20),
 			array('email', 'length', 'max'=>40),
-<<<<<<< HEAD
 			array('email', 'email','message'=>'The email incorrect'),
-=======
-			array('email', 'email', 'checkMX'=>true, 'message'=>'The email incorrect'),
->>>>>>> 2aadfccd70d14f6615e92632d636fd409947cffd
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('username, password, email', 'safe', 'on'=>'search'),
