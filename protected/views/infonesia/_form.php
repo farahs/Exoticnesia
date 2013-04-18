@@ -30,17 +30,28 @@
 
 	<div class="row">
 		<div id="imageDaerah">
-            <?php echo $form->labelEx(Urlpic::model(), 'gambar_daerah'); ?>
-            <?php echo $form->fileField(Urlpic::model(), '[0]image');?>
-            <?php echo $form->error(Urlpic::model(),'[0]image'); ?>
-            <?php echo $form->fileField(Urlpic::model(), '[1]image');?>
-            <?php echo $form->error(Urlpic::model(),'[1]image'); ?>
-            <?php echo $form->fileField(Urlpic::model(), '[2]image');?>
-            <?php echo $form->error(Urlpic::model(),'[2]image'); ?>
-            <?php echo $form->fileField(Urlpic::model(), '[3]image');?>
-            <?php echo $form->error(Urlpic::model(),'[3]image'); ?>
-            <?php echo $form->fileField(Urlpic::model(), '[4]image');?>
-            <?php echo $form->error(Urlpic::model(),'[4]image'); ?>
+            <?php echo $form->labelEx(Urlpic::model(), 'image'); ?>
+            <h6> File tidak boleh kosong </h6>
+            <div>
+            	<?php echo $form->fileField(Urlpic::model(), '[0]image');?>
+            	<?php echo $form->error(Urlpic::model(),'[0]image'); ?>
+            </div>
+            <div>
+            	<?php echo $form->fileField(Urlpic::model(), '[1]image');?>
+				<?php echo $form->error(Urlpic::model(),'[1]image'); ?>
+			</div>
+			<div>
+	            <?php echo $form->fileField(Urlpic::model(), '[2]image');?>
+	            <?php echo $form->error(Urlpic::model(),'[2]image'); ?>
+            </div>
+            <div>
+	            <?php echo $form->fileField(Urlpic::model(), '[3]image');?>
+	            <?php echo $form->error(Urlpic::model(),'[3]image'); ?>
+	        </div>
+	        <div>
+	            <?php echo $form->fileField(Urlpic::model(), '[4]image');?>
+	            <?php echo $form->error(Urlpic::model(),'[4]image'); ?>
+	        </div>
         </div>
 	</div> 
 

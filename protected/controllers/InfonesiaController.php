@@ -144,6 +144,8 @@ class InfonesiaController extends Controller
 		$model= new Infonesia;
 		$item = new Urlpic;
 		$place = new Penginapan;
+		$j = 0;
+		$i = 0;
 		
 		$path = Yii::app()->basePath.'/../images/';
 		if(isset($_POST['Infonesia'])&&isset($_POST['Urlpic']))
@@ -151,32 +153,61 @@ class InfonesiaController extends Controller
 				$model->attributes = $_POST['Infonesia'];
 				
 				$model->username='admin';
-				if($model->save())
+				if($model->validate())
 				{
-					$i = 0;
+					
+					
 					$path = Yii::app()->basePath . '/../images/' .$model->namadaerah. '/';
 					$array = $_POST['Urlpic'];
+					$item1 = array();
+					$gambar = array();
+
 					foreach ($array as $isi) 
 					{	
-						$item1 = new Urlpic;
-						$item1->attributes = $isi;
+						$tempo = new Urlpic;
+						$tempo = $item1[$i];
+						$item1[$i]->attributes = $isi;
 						
-						$item1->namadaerah = $model->namadaerah;
-						
-						$image = CUploadedFile::getInstance($item1, '['.$i.']image');
-						if (!is_dir($path))
-                                Yii::app()->helper->createFolder($path);
-                     	
-                        if(!empty($image))
+						$item1[$i]->namadaerah = $model->namadaerah;
+						$item1[$i]->validate();
+						$image = CUploadedFile::getInstance($item1[$i], '['.$i.']image');
+						if(!empty($image))
                         {
-                        	$image->saveAs($path.$image);
-	                     	$item1->urlpic = $image->name;
-	                     	$item1->save();	
+                        	$gambar[$i]=$image;
+                        	//$image->saveAs($path.$image);
+	                     	$item[$i]->urlpic = $image->name;
+	                     	//$item1->save(false);
+	                     	//echo $j;	
+	                     	$j+=1;
                         }
-                     		
-                     	$i+=1;
+						// if (!is_dir($path))
+      //                           Yii::app()->helper->createFolder($path);
+                     	
+      //                   if(!empty($image))
+      //                   {
+      //                   	$image->saveAs($path.$image);
+	     //                 	$item1->urlpic = $image->name;
+	     //                 	$item1->save(false);
+	     //                 	//echo $j;	
+	     //                 	$j+=1;
+      //                   }
+                        $i+=1;
+                     	
 
 					}
+					if($j==5)
+						$model->save();
+					for($a=0;$a<5;$a++)
+					{
+						if($j==5)
+						{
+							$item1[$a]->save();
+							if (!is_dir($path))
+                                 Yii::app()->helper->createFolder($path);
+                            $gambar[$a]->saveAs($path.$gambar[$a]);
+						}
+					}
+
 					if(isset($_POST['Penginapan']))
 					{
 						$temp = $_POST['Penginapan']['penginapan'];
@@ -187,7 +218,11 @@ class InfonesiaController extends Controller
 							$item2->penginapan = $value;
 							$item2->namadaerah = $model->namadaerah;
 							//$item2->penginapan = $temp2->penginapan;
-							$item2->save();
+							if($j==5)
+							{
+								$item2->save();
+							}
+								
 						}
 					}
 					if(isset($_POST['Tempatmakan']))
@@ -199,12 +234,24 @@ class InfonesiaController extends Controller
 							$item3 = new Tempatmakan;
 							$item3->tempatmakan = $value2;
 							$item3->namadaerah = $model->namadaerah;
-							//$item2->penginapan = $temp2->penginapan;
-							$item3->save();
+							if($j==5)
+							{
+								$item3->save();
+							}
+								
 						}
 					}
 				}
-				$this->redirect(array('view','id'=>$model->namadaerah));
+				if($j==5)
+				{
+					$this->redirect(array('view','id'=>$model->namadaerah));
+				}	
+				else{}				
+				// else
+				// {
+				// 	$this->refresh();
+				// }
+					
 			}
 
 		$this->render('create',array(

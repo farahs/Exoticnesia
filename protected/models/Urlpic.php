@@ -17,6 +17,7 @@ class Urlpic extends CActiveRecord
 	 * @param string $className active record class name.
 	 * @return Urlpic the static model class
 	 */
+	public $image;
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -38,12 +39,13 @@ class Urlpic extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('namadaerah, urlpic', 'required'),
+			array('namadaerah, urlpic, image', 'required'),
 			array('namadaerah', 'length', 'max'=>50),
 			array('urlpic', 'length', 'max'=>100),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('namadaerah, urlpic', 'safe', 'on'=>'search'),
+			array('image', 'file', 'types' => 'jpg, jpeg, gif, png', 'allowEmpty' => false),
 		);
 	}
 
