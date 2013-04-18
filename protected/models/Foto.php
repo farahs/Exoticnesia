@@ -46,7 +46,7 @@ class Foto extends CActiveRecord
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('username, nama, url', 'safe', 'on'=>'search'),
-			array('image','file','types'=>'jpeg,jpg,gif,png','allowEmpty'=>true),
+			array('url','file','types'=>'jpeg,jpg,gif,png','allowEmpty'=>true),
 		);
 	}
 

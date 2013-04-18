@@ -28,7 +28,7 @@ class PenggunaController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','create','verifikasi','lupa','daftar','kirim','kirimpwd','notiflupa','salahemail'),
+				'actions'=>array('index','create','verifikasi','lupa','daftar','kirim','kirimpwd','notiflupa'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -65,14 +65,18 @@ class PenggunaController extends Controller
 			$gambar = CUploadedFile::getInstance($foto,'foto');
 			$foto->username = $profil->username;
 			$foto->nama = $profil->nama;
-			
+
 				if(!empty($gambar))
 				{
 					$foto->url=$gambar->name;
 					if($foto->save())
 						$gambar->saveAs($path.$gambar);
+
 					//$foto->save();
 				}
+
+
+
 
 		}
 
@@ -103,7 +107,7 @@ class PenggunaController extends Controller
 			$model->attributes = $_POST['Pengguna'];
 			$pt->attributes = $_POST['Pengunjungterdaftar'];
 			$profil->attributes = $_POST['Profil'];
-			
+
 			$model->isAktif=0;
 			$model->kodeDaftar=md5(rand(0,1000000));
 
@@ -124,25 +128,20 @@ class PenggunaController extends Controller
 							$profil->avatar = $foto->name;
 							$foto->saveAs($path.$foto);
 						}
-						
+
 						$email = Yii::app()->email;
 						$email->from = "farah.shafira@gmail.com";
 						$email->to = $pt->email;
 						$email->subject = "[Exoticnesia] Verifikasi Pendaftaran";
 						$email->view='emailDaftar';
 						$email->viewVars=array('pengguna' => $model, 'pengunjungterdaftar' => $pt, 'profil'=>$profil);
-						// if($email->send()){
-						// 	$this->redirect(array('daftar','id'=>$model->username));
-						// }	
-						// else{
-						//	$this->redirect(array('salahemail','id'=>$model->username));	
-						// }
-						// testing kirim jadi tampilan view
-						// $this->redirect('kirim',array('pengguna' => $model, 'pengunjungterdaftar' => $pt, 'profil'=>$profil));
-						// if($email->send()){
-						// 	//menampilkan notifikasi
-						 	$this->redirect(array('daftar','id'=>$model->username));
-						// }
+						//$email->send();
+						//testing kirim jadi tampilan view
+						//$this->redirect('kirim',array('pengguna' => $model, 'pengunjungterdaftar' => $pt, 'profil'=>$profil));
+						//if($email->send()){
+							//menampilkan notifikasi
+							$this->redirect(array('daftar','id'=>$model->username));
+						//}
 					}
 				} 
 			}
@@ -171,20 +170,6 @@ class PenggunaController extends Controller
 		));
 	}
 
-	public function actionSalahemail($id)
-	{	
-		//hapus yg di database
-		$model=$this->loadModel($id);
-		$pt=Pengunjungterdaftar::model()->find('username=?',array($this->id));
-		$profil=Profil::model()->find('username=?',array($this->id));
-
-		$profil->delete();
-		$model->delete();
-		$pt->delete();
-
-		$this->render('salahemail');
-	}
-
 	/**
 	* Ketika pengguna melakukan pendaftaran, harus melakukan verifikasi terlebih dahulu
 	* sebelum dapat login ke sistem
@@ -205,47 +190,42 @@ class PenggunaController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-		$pt=Pengunjungterdaftar::model()->find('username=?', array($model->username));
-		$profil=Profil::model()->find('username=?', array($model->username));
+		$pt=$model->username0;
+		$profil=$model->profils;
 
-		echo $model->username;
-		echo $pt->username;
-		echo $profil->username;
-		// $profil=$model->profils;
-
-		// Pengunjungterdaftar::model()->find('username=?',array($this->id)),
-		// 	'profil'=>Profil::model()->find('username=?',array($this->id)),
-		// // Uncomment the following line if AJAX validation is needed
-		//$this->performAjaxValidation($model);
-
-		if(isset($_POST['Pengguna'], $_POST['Profil']))
+		// $criteria = new CDbCriteria();
+		// $criteria->condition = "username = $profil->username";
+		// $fotos=Foto::model()->findAll($criteria);
+		// YourModel::model()->updateAll(array('current'=>0),'parentId="'.$this->parentId.'"');
+		// Uncomment the following line if AJAX validation is needed
+		$this->performAjaxValidation($model);
+		
+		if(isset($_POST['Profil']))
 		{
-			$model->attributes=$_POST['Pengguna'];
-			$profil->nama = $_POST['Profil']['Nama Lengkap'];
-			$profil->contact = $_POST['Profil']['Contact'];
-			$profil->sex = $_POST['Profil']['Sex'];
-			
+			$_POST['Profil']['Nama Lengkap'] = $profil->nama;
+			$profil->attributes = $_POST['Profil'];
+
 			$pt->username = $model->username;
-			echo $pt->username;
-			$profil->username = $model->username;
-			echo $profil->username;
+			$model->username = $profil->username;
 
 			$foto=CUploadedFile::getInstance($profil,'avatar');
 			$path=Yii::app()->basePath . '/../images/avatar/';
 			// $profil->avatar = $foto->name;
 
-			if($model->save() && $model->validate()) {
+			if($model->save() && $model->validate()){ 
 				if(!empty($foto)){
 					$profil->avatar = $foto->name;
 					if($profil->save() && $profil->validate()) {
 						$foto->saveAs($path.$foto);
+						//$fotos=Foto::model()->updateAll(array('nama'=> $profil->nama), 'username="'.$profil->username.'"');
 					}
 				}
 				else{
 					$profil->save();
-					$profil->validate(); 
+					$profil->validate();
+					//$fotos=Foto::model()->updateAll(array('nama'=> $profil->nama), 'username="'.$profil->username.'"'); 
 				}
-				
+
 				$this->redirect(array('view', 'id'=>$model->username));
 			}
 		}
