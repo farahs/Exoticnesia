@@ -7,14 +7,16 @@ $this->breadcrumbs=array(
 	$model->username,
 );
 
-$this->menu=array(
-	// array('label'=>'List Pengguna', 'url'=>array('index')),
-	// array('label'=>'Create Pengguna', 'url'=>array('create')),
-	array('label'=>'Edit Profil', 'url'=>array('update', 'id'=>$model->username)),
-	array('label'=>'Create Wishlist', 'url'=>array('viewwishlist', 'id'=>$model->username)),
-	// array('label'=>'Delete Pengguna', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->username),'confirm'=>'Are you sure you want to delete this item?')),
-	// array('label'=>'Manage Pengguna', 'url'=>array('admin')),
-);
+if(Yii::app()->user->id == $model->username) {
+	$this->menu=array(
+		// array('label'=>'List Pengguna', 'url'=>array('index')),
+		// array('label'=>'Create Pengguna', 'url'=>array('create')),
+		array('label'=>'Edit Profil', 'url'=>array('update', 'id'=>$model->username)),
+		array('label'=>'Create Wishlist', 'url'=>array('viewwishlist', 'id'=>$model->username)),
+		// array('label'=>'Delete Pengguna', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->username),'confirm'=>'Are you sure you want to delete this item?')),
+		// array('label'=>'Manage Pengguna', 'url'=>array('admin')),
+	);
+}
 ?>
 
 <h1><?php echo $model->profils->nama; ?></h1>
@@ -56,12 +58,14 @@ $this->menu=array(
     ?>
     <div style="clear:both;"></div>
 </div>
+
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'foto-form',
 	'enableAjaxValidation'=>false,
 	'htmlOptions' => array('enctype' => 'multipart/form-data'),
 )); ?>
 
+<?php if(Yii::app()->user->id == $model->username) {?>
 <br/>
 <div class="row">
 		<div id="foto" align = "center">
@@ -73,6 +77,6 @@ $this->menu=array(
 			<?php echo CHtml::submitButton('Upload',array('id'=>'/pengguna/view')); ?>
 		</div>
 </div> 
-
+<?php } ?>
 <?php $this->endWidget(); ?>
 

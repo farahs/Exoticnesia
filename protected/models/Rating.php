@@ -9,8 +9,8 @@
  * @property string $username
  *
  * The followings are the available model relations:
- * @property Infonesia $namadaerah0
  * @property Pengguna $username0
+ * @property Infonesia $namadaerah0
  */
 class Rating extends CActiveRecord
 {
@@ -43,7 +43,7 @@ class Rating extends CActiveRecord
 			array('namadaerah, nilai, username', 'required'),
 			array('nilai', 'numerical', 'integerOnly'=>true),
 			array('namadaerah', 'length', 'max'=>50),
-			array('username', 'length', 'max'=>10),
+			array('username', 'length', 'max'=>20),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('namadaerah, nilai, username', 'safe', 'on'=>'search'),
@@ -58,8 +58,8 @@ class Rating extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'namadaerah0' => array(self::BELONGS_TO, 'Infonesia', 'namadaerah'),
 			'username0' => array(self::BELONGS_TO, 'Pengguna', 'username'),
+			'namadaerah0' => array(self::BELONGS_TO, 'Infonesia', 'namadaerah'),
 		);
 	}
 

@@ -97,7 +97,7 @@ $this->breadcrumbs=array(
                     data: "id='.$model->namadaerah.'&rate=" + $(this).val(),
                     success: function(msg){
                     $("#rating > input").rating("readOnly", true);
-                    }})}',
+                    }})}'
              ));
         
     ?>

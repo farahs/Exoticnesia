@@ -28,7 +28,7 @@ class PenggunaController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','create','verifikasi','lupa','daftar','kirim','kirimpwd','notiflupa'),
+				'actions'=>array('index','create','verifikasi','lupa','daftar','kirim','kirimpwd','notiflupa','salahemail'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -115,7 +115,7 @@ class PenggunaController extends Controller
 			$profil->username = $model->username;
 
 			$foto=CUploadedFile::getInstance($profil,'avatar');
-			$profil->avatar = $foto->name;
+			// $profil->avatar = $foto->name;
 			$path=Yii::app()->basePath . '/../images/avatar/';
 
 			if($pt->save() && $pt->validate())
@@ -135,13 +135,19 @@ class PenggunaController extends Controller
 						$email->subject = "[Exoticnesia] Verifikasi Pendaftaran";
 						$email->view='emailDaftar';
 						$email->viewVars=array('pengguna' => $model, 'pengunjungterdaftar' => $pt, 'profil'=>$profil);
-						//$email->send();
-						//testing kirim jadi tampilan view
-						//$this->redirect('kirim',array('pengguna' => $model, 'pengunjungterdaftar' => $pt, 'profil'=>$profil));
-						//if($email->send()){
-							//menampilkan notifikasi
-							$this->redirect(array('daftar','id'=>$model->username));
-						//}
+						// if($email->send()){
+						// 	$this->redirect(array('daftar','id'=>$model->username));
+						// }	
+						// else{
+							// $this->redirect(array('salahemail','id'=>$model->username));
+							
+						// }
+						// testing kirim jadi tampilan view
+						// $this->redirect('kirim',array('pengguna' => $model, 'pengunjungterdaftar' => $pt, 'profil'=>$profil));
+						// if($email->send()){
+						// 	//menampilkan notifikasi
+						 	$this->redirect(array('daftar','id'=>$model->username));
+						// }
 					}
 				} 
 			}
@@ -170,6 +176,20 @@ class PenggunaController extends Controller
 		));
 	}
 
+	public function actionSalahemail($id)
+	{	
+		//hapus yg di database
+		$model=$this->loadModel($id);
+		$pt=Pengunjungterdaftar::model()->find('username=?',array($this->id));
+		$profil=Profil::model()->find('username=?',array($this->id));
+
+		$profil->delete();
+		$model->delete();
+		$pt->delete();
+
+		$this->render('salahemail');
+	}
+
 	/**
 	* Ketika pengguna melakukan pendaftaran, harus melakukan verifikasi terlebih dahulu
 	* sebelum dapat login ke sistem
@@ -190,31 +210,50 @@ class PenggunaController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-		$pt=$model->username0;
-		$profil=$model->profils;
+		$pt=Pengunjungterdaftar::model()->find('username=?', array($model->username));
+		$profil=Profil::model()->find('username=?', array($model->username));
 
-		// Uncomment the following line if AJAX validation is needed
-		$this->performAjaxValidation($model);
+		echo $model->username;
+		echo $pt->username;
+		echo $profil->username;
+		// $profil=$model->profils;
+
+		// Pengunjungterdaftar::model()->find('username=?',array($this->id)),
+		// 	'profil'=>Profil::model()->find('username=?',array($this->id)),
+		// // Uncomment the following line if AJAX validation is needed
+		//$this->performAjaxValidation($model);
 
 		if(isset($_POST['Pengguna'], $_POST['Profil']))
 		{
 			$model->attributes=$_POST['Pengguna'];
-			$profil->attributes = $_POST['Profil'];
+			$profil->nama = $_POST['Profil']['Nama Lengkap'];
+			$profil->contact = $_POST['Profil']['Contact'];
+			$profil->sex = $_POST['Profil']['Sex'];
 			
 			$pt->username = $model->username;
-			$model->username = $profil->username;
+			echo $pt->username;
+			$profil->username = $model->username;
+			echo $profil->username;
 
 			$foto=CUploadedFile::getInstance($profil,'avatar');
 			$path=Yii::app()->basePath . '/../images/avatar/';
-			$profil->avatar = $foto->name;
+			// $profil->avatar = $foto->name;
 
-			if($model->update() && $model->validate()) {
-				if($profil->update() && $profil->validate()) {
-					if(!empty($foto)){
+			if(true) {
+				$model->save();
+				if(!empty($foto)){
+					$profil->avatar = $foto->name;
+					if($profil->save() && $profil->validate()) {
 						$foto->saveAs($path.$foto);
 					}
-					$this->redirect(array('view', 'id'=>$model->username));
 				}
+				else{
+					$foto->name = $profil->avatar;
+					$profil->save();
+					$profil->validate(); 
+				}
+				
+				$this->redirect(array('view', 'id'=>$model->username));
 			}
 		}
 

@@ -106,7 +106,7 @@ class InfonesiaController extends Controller
 
     public function actionRating() {
 
-     	$query = 'select namadaerah, username from rating where namadaerah = \''.$_POST['id'].'\' AND username = \''.Yii::app()->user->id.'\'';
+    	$query = 'select namadaerah, username from rating where namadaerah = \''.$_POST['id'].'\' AND username = \''.Yii::app()->user->id.'\'';
         $models = Yii::app()->db->createCommand($query)->queryRow();
 
         if(Empty($models['username'])) {
@@ -115,7 +115,7 @@ class InfonesiaController extends Controller
             $rating->nilai = $_POST['rate'];
             $rating->username = Yii::app()->user->id;
             $rating->save();
-        }
+        }        
     }
 
     public function actionSumRating($model) {
@@ -151,7 +151,7 @@ class InfonesiaController extends Controller
 				$model->attributes = $_POST['Infonesia'];
 				
 				$model->username='admin';
-				if($model->save())
+				if($model->save()&&$model->validate())
 				{
 					$i = 0;
 					$path = Yii::app()->basePath . '/../images/' .$model->namadaerah. '/';
@@ -166,17 +166,17 @@ class InfonesiaController extends Controller
 						$image = CUploadedFile::getInstance($item1, '['.$i.']image');
 						if (!is_dir($path))
                                 Yii::app()->helper->createFolder($path);
-                     	
-                        if(!empty($image))
+                     	if(!empty($image))
                         {
                         	$image->saveAs($path.$image);
 	                     	$item1->urlpic = $image->name;
-	                     	$item1->save();	
+	                     	$item1->save(false);	
                         }
-                     		
-                     	$i+=1;
+                     	
+						$i+=1;
 
 					}
+
 					if(isset($_POST['Penginapan']))
 					{
 						$temp = $_POST['Penginapan']['penginapan'];
@@ -187,7 +187,8 @@ class InfonesiaController extends Controller
 							$item2->penginapan = $value;
 							$item2->namadaerah = $model->namadaerah;
 							//$item2->penginapan = $temp2->penginapan;
-							$item2->save();
+							if($i=4)
+								$item2->save();
 						}
 					}
 					if(isset($_POST['Tempatmakan']))
@@ -200,7 +201,8 @@ class InfonesiaController extends Controller
 							$item3->tempatmakan = $value2;
 							$item3->namadaerah = $model->namadaerah;
 							//$item2->penginapan = $temp2->penginapan;
-							$item3->save();
+							if($i=4)
+								$item3->save();
 						}
 					}
 				}

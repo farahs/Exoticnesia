@@ -9,8 +9,8 @@
  * @property string $url
  *
  * The followings are the available model relations:
- * @property Profil $username0
  * @property Profil $nama0
+ * @property Profil $username0
  */
 class Foto extends CActiveRecord
 {
@@ -19,7 +19,6 @@ class Foto extends CActiveRecord
 	 * @param string $className active record class name.
 	 * @return Foto the static model class
 	 */
-	public $foto;
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -43,11 +42,11 @@ class Foto extends CActiveRecord
 		return array(
 			array('username, nama, url', 'required'),
 			array('username, url', 'length', 'max'=>15),
-			array('nama', 'length', 'max'=>20),
+			array('nama', 'length', 'max'=>40),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('username, nama, url', 'safe', 'on'=>'search'),
-			array('foto', 'file','types'=>'jpg,gif,png', 'allowEmpty'=>true),
+			array('image','file','types'=>'jpeg,jpg,gif,png','allowEmpty'=>true),
 		);
 	}
 
@@ -59,8 +58,8 @@ class Foto extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'username0' => array(self::BELONGS_TO, 'Profil', 'username'),
 			'nama0' => array(self::BELONGS_TO, 'Profil', 'nama'),
+			'username0' => array(self::BELONGS_TO, 'Profil', 'username'),
 		);
 	}
 

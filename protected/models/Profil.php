@@ -54,7 +54,8 @@ class Profil extends CActiveRecord
 			array('sex', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('username, nama, contact, sex, avatar', 'safe', 'on'=>'search, update'),
+			array('username, nama', 'safe', 'on'=>'search, update'),
+			array('contact, sex, avatar', 'safe', 'on'=>'search, update')
 		);
 	}
 
