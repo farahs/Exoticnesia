@@ -65,19 +65,19 @@ class PenggunaController extends Controller
 			$gambar = CUploadedFile::getInstance($foto,'foto');
 			$foto->username = $profil->username;
 			$foto->nama = $profil->nama;
-			
+
 				if(!empty($gambar))
 				{
 					$foto->url=$gambar->name;
 					if($foto->save())
 						$gambar->saveAs($path.$gambar);
-					
+
 					//$foto->save();
 				}
-				
-			
-			
-			
+
+
+
+
 		}
 
 		$this->render('view',array(
@@ -107,7 +107,7 @@ class PenggunaController extends Controller
 			$model->attributes = $_POST['Pengguna'];
 			$pt->attributes = $_POST['Pengunjungterdaftar'];
 			$profil->attributes = $_POST['Profil'];
-			
+
 			$model->isAktif=0;
 			$model->kodeDaftar=md5(rand(0,1000000));
 
@@ -128,7 +128,7 @@ class PenggunaController extends Controller
 							$profil->avatar = $foto->name;
 							$foto->saveAs($path.$foto);
 						}
-						
+
 						$email = Yii::app()->email;
 						$email->from = "farah.shafira@gmail.com";
 						$email->to = $pt->email;
@@ -193,14 +193,18 @@ class PenggunaController extends Controller
 		$pt=$model->username0;
 		$profil=$model->profils;
 
+		// $criteria = new CDbCriteria();
+		// $criteria->condition = "username = $profil->username";
+		// $fotos=Foto::model()->findAll($criteria);
+		// YourModel::model()->updateAll(array('current'=>0),'parentId="'.$this->parentId.'"');
 		// Uncomment the following line if AJAX validation is needed
 		$this->performAjaxValidation($model);
-
-		if(isset($_POST['Pengguna'], $_POST['Profil']))
+		
+		if(isset($_POST['Profil']))
 		{
-			$model->attributes=$_POST['Pengguna'];
+			$_POST['Profil']['Nama Lengkap'] = $profil->nama;
 			$profil->attributes = $_POST['Profil'];
-			
+
 			$pt->username = $model->username;
 			$model->username = $profil->username;
 
@@ -208,18 +212,20 @@ class PenggunaController extends Controller
 			$path=Yii::app()->basePath . '/../images/avatar/';
 			// $profil->avatar = $foto->name;
 
-			if($model->save() && $model->validate()) {
+			if($model->save() && $model->validate()){ 
 				if(!empty($foto)){
 					$profil->avatar = $foto->name;
 					if($profil->save() && $profil->validate()) {
 						$foto->saveAs($path.$foto);
+						//$fotos=Foto::model()->updateAll(array('nama'=> $profil->nama), 'username="'.$profil->username.'"');
 					}
 				}
 				else{
 					$profil->save();
-					$profil->validate(); 
+					$profil->validate();
+					//$fotos=Foto::model()->updateAll(array('nama'=> $profil->nama), 'username="'.$profil->username.'"'); 
 				}
-				
+
 				$this->redirect(array('view', 'id'=>$model->username));
 			}
 		}

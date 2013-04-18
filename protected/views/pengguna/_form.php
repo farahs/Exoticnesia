@@ -51,7 +51,11 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($profil,'nama'); ?>
-		<?php echo $form->textField($profil,'nama',array('size'=>20,'maxlength'=>20)); ?>
+		<?php echo $form->textField($profil,'nama',array(
+													'size'=>20,
+													'maxlength'=>20,
+													 'disabled'=>!$model->isNewRecord
+													)); ?>
 		<?php echo $form->error($profil,'nama'); ?>
 	</div>
 	

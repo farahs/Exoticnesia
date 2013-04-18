@@ -45,7 +45,11 @@ class Urlpic extends CActiveRecord
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('namadaerah, urlpic', 'safe', 'on'=>'search'),
+<<<<<<< HEAD
 			array('urlpic', 'file', 'types' => 'jpg, jpeg, gif, png', 'allowEmpty' => false),
+=======
+			array('image','file','types'=>'jpeg,jpg,gif,png','allowEmpty'=>false),
+>>>>>>> 00fca26fad0322461fef6b59cda44319b0e7eccd
 		);
 	}
 
