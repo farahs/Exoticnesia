@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 17, 2013 at 06:11 AM
+-- Generation Time: Apr 18, 2013 at 11:17 AM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -53,7 +53,15 @@ CREATE TABLE IF NOT EXISTS `container` (
   PRIMARY KEY (`id`),
   KEY `username` (`username`),
   KEY `namadaerah` (`namadaerah`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+
+--
+-- Dumping data for table `container`
+--
+
+INSERT INTO `container` (`id`, `username`, `namadaerah`) VALUES
+(8, 'farahs', 'Amed'),
+(9, 'farahs', 'Bulukumba');
 
 -- --------------------------------------------------------
 
@@ -63,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `container` (
 
 CREATE TABLE IF NOT EXISTS `foto` (
   `username` varchar(15) NOT NULL,
-  `nama` varchar(20) NOT NULL,
+  `nama` varchar(40) NOT NULL,
   `url` varchar(15) NOT NULL,
   PRIMARY KEY (`username`,`nama`,`url`),
   KEY `nama` (`nama`)
@@ -74,10 +82,13 @@ CREATE TABLE IF NOT EXISTS `foto` (
 --
 
 INSERT INTO `foto` (`username`, `nama`, `url`) VALUES
+('farahs', 'Farah Shafira', 'jack.jpg'),
 ('farahs', 'Farah Shafira', 'messi lego.jpg'),
+('farahs', 'Farah Shafira', 'olivier.jpg'),
+('farahs', 'Farah Shafira', 'sja.jpg'),
 ('farahs', 'Farah Shafira', 'tumblr1.jpg'),
-('nikenafc', 'nikenp', 'amed1.jpg'),
-('nikenafc', 'nikenp', 'bun3.jpg'),
+('nikenafc', 'Niken Paramita', 'amed1.jpg'),
+('nikenafc', 'Niken Paramita', 'bun3.jpg'),
 ('sipuji', 'Puji Martadinata', 'amed1.jpg'),
 ('sipuji', 'Puji Martadinata', 'amed4.jpg'),
 ('sipuji', 'Puji Martadinata', 'pooh~3.gif');
@@ -140,6 +151,7 @@ CREATE TABLE IF NOT EXISTS `pengguna` (
 
 INSERT INTO `pengguna` (`username`, `kodeDaftar`, `isAktif`) VALUES
 ('farahs', 'f3b2d7627dbb1407fb4112bcc169ab01', 1),
+('irfanIF', 'eceec728a31cb43e57b77ed98a573d99', 1),
 ('nikenafc', '435caa044b0db1a43fe6b302d7fa9403', 1),
 ('sipuji', 'f96e78167ac5128355cdef080692fb31', 1);
 
@@ -223,6 +235,7 @@ CREATE TABLE IF NOT EXISTS `pengunjungterdaftar` (
 INSERT INTO `pengunjungterdaftar` (`username`, `password`, `email`) VALUES
 ('admin', 'admin', 'admin@gmail.com'),
 ('farahs', 'leomessi', 'farahshafira@live.com'),
+('irfanIF', 'irfanirfan', 'irfanfadhillah@gmail.com'),
 ('nikenafc', 'nikenniken', 'nikenafc@gmail.com'),
 ('sipuji', '20maret1992', 'sipuji.dinata@gmail.com');
 
@@ -264,8 +277,9 @@ CREATE TABLE IF NOT EXISTS `profil` (
 
 INSERT INTO `profil` (`username`, `nama`, `contact`, `sex`, `avatar`) VALUES
 ('farahs', 'Farah Shafira', '', 'Female', 'baby.jpg'),
-('nikenafc', 'nikenp', '1234', 'Male', 'poohlagilagi.gif'),
-('sipuji', 'Puji Martadinata', '081219657780', 'Female', 'sipuji.jpg');
+('irfanIF', 'Irfan Fadhillah', '', '', ''),
+('nikenafc', 'Niken Paramita', '1234', 'Male', 'poohlagilagi.gif'),
+('sipuji', 'Puji Martadinata', '081219657780', 'Male', 'IMG-20130408-01498.jpg');
 
 -- --------------------------------------------------------
 
@@ -287,6 +301,7 @@ CREATE TABLE IF NOT EXISTS `rating` (
 --
 
 INSERT INTO `rating` (`namadaerah`, `nilai`, `username`) VALUES
+('Amed', 4, 'farahs'),
 ('Bulukumba', 5, 'farahs'),
 ('Gunung Maras', 4, 'farahs'),
 ('Bunaken', 3, 'nikenafc'),
@@ -308,7 +323,7 @@ CREATE TABLE IF NOT EXISTS `review` (
   `username` varchar(10) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `username` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
 -- Dumping data for table `review`
@@ -326,7 +341,8 @@ INSERT INTO `review` (`namadaerah`, `id`, `isi`, `username`) VALUES
 ('Amed', 13, 'Salah satu objek wisata di Bali yang terkenal dengan site diving dan snorkeling adalah pantai Amed. Salah satu bagian pantai di sini adalah Pantai Jemeluk Amed, memiliki pemandangan bawah laut yang eksotis baik itu terumbu karang maupun kehidupan ikan laut tropis yang ada di dalamnya. Menginjakkan kaki kita di bukit Jemeluk, kita bisa menyaksikan hamparan lautan biru yang indah, deretan perahu nelayan sepanjang bibir pantai dan perkasanya Gunung Agung yang menjulang tinggi. Liburan anda akan terasa beda dengan suasana pedesaan dengan penduduk setempat yang ramah. Yang menjadi unggulan di objek wisata pantai Amed adalah surganya bagi para penyelam dan sudah terkenal sampai ke mancanegara, memiliki tekstur pantai yang berkoral, air yang bening dan tenang dan tentunya memiliki keindahan bawah laut. Banyak wisatawan dari mancanegara dan beberapa wisatawan domestik mengunjungi objek wisata di Bali ini. Yang tak kalah menariknya jika melakukan wisata di sini suasana eksotis di pagi hari, dengan cahaya kuning keemasan matahari terbit di pagi hari, dipadu dengan segarnya angin laut dan pedesan yang jauh dari polusi, sungguh merupakan terapi alam yang membuat pikiran anda refresh kembali, sehingga membuat suasan liburan anda di Bali semakin mengesankan.', 'nikenafc'),
 ('Amed', 14, 'Salah satu objek wisata di Bali yang terkenal dengan site diving dan snorkeling adalah pantai Amed. Salah satu bagian pantai di sini adalah Pantai Jemeluk Amed, memiliki pemandangan bawah laut yang eksotis baik itu terumbu karang maupun kehidupan ikan laut tropis yang ada di dalamnya. Menginjakkan kaki kita di bukit Jemeluk, kita bisa menyaksikan hamparan lautan biru yang indah, deretan perahu nelayan sepanjang bibir pantai dan perkasanya Gunung Agung yang menjulang tinggi. Liburan anda akan terasa beda dengan suasana pedesaan dengan penduduk setempat yang ramah. Yang menjadi unggulan di objek wisata pantai Amed adalah surganya bagi para penyelam dan sudah terkenal sampai ke mancanegara, memiliki tekstur pantai yang berkoral, air yang bening dan tenang dan tentunya memiliki keindahan bawah laut. Banyak wisatawan dari mancanegara dan beberapa wisatawan domestik mengunjungi objek wisata di Bali ini. Yang tak kalah menariknya jika melakukan wisata di sini suasana eksotis di pagi hari, dengan cahaya kuning keemasan matahari terbit di pagi hari, dipadu dengan segarnya angin laut dan pedesan yang jauh dari polusi, sungguh merupakan terapi alam yang membuat pikiran anda refresh kembali, sehingga membuat suasan liburan anda di Bali semakin mengesankan.', 'nikenafc'),
 ('Amed', 15, 'Salah satu objek wisata di Bali yang terkenal dengan site diving dan snorkeling adalah pantai Amed. Salah satu bagian pantai di sini adalah Pantai Jemeluk Amed, memiliki pemandangan bawah laut yang eksotis baik itu terumbu karang maupun kehidupan ikan laut tropis yang ada di dalamnya. Menginjakkan kaki kita di bukit Jemeluk, kita bisa menyaksikan hamparan lautan biru yang indah, deretan perahu nelayan sepanjang bibir pantai dan perkasanya Gunung Agung yang menjulang tinggi. Liburan anda akan terasa beda dengan suasana pedesaan dengan penduduk setempat yang ramah. Yang menjadi unggulan di objek wisata pantai Amed adalah surganya bagi para penyelam dan sudah terkenal sampai ke mancanegara, memiliki tekstur pantai yang berkoral, air yang bening dan tenang dan tentunya memiliki keindahan bawah laut. Banyak wisatawan dari mancanegara dan beberapa wisatawan domestik mengunjungi objek wisata di Bali ini. Yang tak kalah menariknya jika melakukan wisata di sini suasana eksotis di pagi hari, dengan cahaya kuning keemasan matahari terbit di pagi hari, dipadu dengan segarnya angin laut dan pedesan yang jauh dari polusi, sungguh merupakan terapi alam yang membuat pikiran anda refresh kembali, sehingga membuat suasan liburan anda di Bali semakin mengesankan.', 'nikenafc'),
-('Amed', 16, 'Salah satu objek wisata di Bali yang terkenal dengan site diving dan snorkeling adalah pantai Amed. Salah satu bagian pantai di sini adalah Pantai Jemeluk Amed, memiliki pemandangan bawah laut yang eksotis baik itu terumbu karang maupun kehidupan ikan laut tropis yang ada di dalamnya. Menginjakkan kaki kita di bukit Jemeluk, kita bisa menyaksikan hamparan lautan biru yang indah, deretan perahu nelayan sepanjang bibir pantai dan perkasanya Gunung Agung yang menjulang tinggi. Liburan anda akan terasa beda dengan suasana pedesaan dengan penduduk setempat yang ramah. Yang menjadi unggulan di objek wisata pantai Amed adalah surganya bagi para penyelam dan sudah terkenal sampai ke mancanegara, memiliki tekstur pantai yang berkoral, air yang bening dan tenang dan tentunya memiliki keindahan bawah laut. Banyak wisatawan dari mancanegara dan beberapa wisatawan domestik mengunjungi objek wisata di Bali ini. Yang tak kalah menariknya jika melakukan wisata di sini suasana eksotis di pagi hari, dengan cahaya kuning keemasan matahari terbit di pagi hari, dipadu dengan segarnya angin laut dan pedesan yang jauh dari polusi, sungguh merupakan terapi alam yang membuat pikiran anda refresh kembali, sehingga membuat suasan liburan anda di Bali semakin mengesankan.', 'nikenafc');
+('Amed', 16, 'Salah satu objek wisata di Bali yang terkenal dengan site diving dan snorkeling adalah pantai Amed. Salah satu bagian pantai di sini adalah Pantai Jemeluk Amed, memiliki pemandangan bawah laut yang eksotis baik itu terumbu karang maupun kehidupan ikan laut tropis yang ada di dalamnya. Menginjakkan kaki kita di bukit Jemeluk, kita bisa menyaksikan hamparan lautan biru yang indah, deretan perahu nelayan sepanjang bibir pantai dan perkasanya Gunung Agung yang menjulang tinggi. Liburan anda akan terasa beda dengan suasana pedesaan dengan penduduk setempat yang ramah. Yang menjadi unggulan di objek wisata pantai Amed adalah surganya bagi para penyelam dan sudah terkenal sampai ke mancanegara, memiliki tekstur pantai yang berkoral, air yang bening dan tenang dan tentunya memiliki keindahan bawah laut. Banyak wisatawan dari mancanegara dan beberapa wisatawan domestik mengunjungi objek wisata di Bali ini. Yang tak kalah menariknya jika melakukan wisata di sini suasana eksotis di pagi hari, dengan cahaya kuning keemasan matahari terbit di pagi hari, dipadu dengan segarnya angin laut dan pedesan yang jauh dari polusi, sungguh merupakan terapi alam yang membuat pikiran anda refresh kembali, sehingga membuat suasan liburan anda di Bali semakin mengesankan.', 'nikenafc'),
+('Amed', 19, 'tempat yang bagus', 'farahs');
 
 -- --------------------------------------------------------
 
@@ -527,8 +543,8 @@ ALTER TABLE `container`
 -- Constraints for table `foto`
 --
 ALTER TABLE `foto`
-  ADD CONSTRAINT `foto_ibfk_2` FOREIGN KEY (`nama`) REFERENCES `profil` (`nama`),
-  ADD CONSTRAINT `foto_ibfk_3` FOREIGN KEY (`username`) REFERENCES `profil` (`username`);
+  ADD CONSTRAINT `foto_ibfk_3` FOREIGN KEY (`username`) REFERENCES `profil` (`username`),
+  ADD CONSTRAINT `foto_ibfk_4` FOREIGN KEY (`nama`) REFERENCES `profil` (`nama`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `infonesia`
