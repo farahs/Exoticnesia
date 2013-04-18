@@ -6076,6 +6076,7 @@ REQUEST_URI=/Exoticnesia/index.php?r=infonesia/view&id=Sipuji+jelek
 in D:\wamp\www\Exoticnesia\protected\views\infonesia\view.php (44)
 in D:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (69)
 in D:\wamp\www\Exoticnesia\index.php (13)
+<<<<<<< HEAD
 2013/04/17 16:10:56 [warning] [application] Failed to set unsafe attribute "avatar" of "Profil".
 in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (222)
 in D:\wamp\www\Exoticnesia\index.php (13)
@@ -6920,3 +6921,5 @@ Stack trace:
 REQUEST_URI=/Exoticnesia/index.php?r=pengguna/update&id=farahs
 in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (246)
 in D:\wamp\www\Exoticnesia\index.php (13)
+=======
+>>>>>>> 2aadfccd70d14f6615e92632d636fd409947cffd

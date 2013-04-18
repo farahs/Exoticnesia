@@ -139,14 +139,22 @@ class PenggunaController extends Controller
 						// 	$this->redirect(array('daftar','id'=>$model->username));
 						// }	
 						// else{
+<<<<<<< HEAD
 							// $this->redirect(array('salahemail','id'=>$model->username));
+=======
+							$this->redirect(array('salahemail','id'=>$model->username));
+>>>>>>> 2aadfccd70d14f6615e92632d636fd409947cffd
 							
 						// }
 						// testing kirim jadi tampilan view
 						// $this->redirect('kirim',array('pengguna' => $model, 'pengunjungterdaftar' => $pt, 'profil'=>$profil));
 						// if($email->send()){
 						// 	//menampilkan notifikasi
+<<<<<<< HEAD
 						 	$this->redirect(array('daftar','id'=>$model->username));
+=======
+						// 	$this->redirect(array('daftar','id'=>$model->username));
+>>>>>>> 2aadfccd70d14f6615e92632d636fd409947cffd
 						// }
 					}
 				} 
@@ -239,8 +247,12 @@ class PenggunaController extends Controller
 			$path=Yii::app()->basePath . '/../images/avatar/';
 			// $profil->avatar = $foto->name;
 
+<<<<<<< HEAD
 			if(true) {
 				$model->save();
+=======
+			if($model->save() && $model->validate()) {
+>>>>>>> 2aadfccd70d14f6615e92632d636fd409947cffd
 				if(!empty($foto)){
 					$profil->avatar = $foto->name;
 					if($profil->save() && $profil->validate()) {
@@ -248,7 +260,10 @@ class PenggunaController extends Controller
 					}
 				}
 				else{
+<<<<<<< HEAD
 					$foto->name = $profil->avatar;
+=======
+>>>>>>> 2aadfccd70d14f6615e92632d636fd409947cffd
 					$profil->save();
 					$profil->validate(); 
 				}
