@@ -8233,6 +8233,101 @@ in D:\wamp\www\Exoticnesia\index.php (13)
 in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (64)
 in D:\wamp\www\Exoticnesia\index.php (13)
 >>>>>>> 00fca26fad0322461fef6b59cda44319b0e7eccd
+<<<<<<< HEAD
+2013/04/18 14:58:24 [warning] [application] Failed to set unsafe attribute "avatar" of "Profil".
+in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (206)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/18 14:59:56 [warning] [application] Failed to set unsafe attribute "avatar" of "Profil".
+in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (206)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/18 15:54:19 [warning] [application] Failed to set unsafe attribute "avatar" of "Profil".
+in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (206)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/18 15:54:19 [error] [php] Undefined index: Pengguna (D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php:207)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(133): PenggunaController->runAction()
+#3 D:\wamp\www\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 D:\wamp\www\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 D:\wamp\www\yii\framework\web\filters\CInlineFilter.php(58): PenggunaController->filterAccessControl()
+#6 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 D:\wamp\www\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 D:\wamp\www\yii\framework\web\CController.php(265): PenggunaController->runActionWithFilters()
+#9 D:\wamp\www\yii\framework\web\CWebApplication.php(282): PenggunaController->run()
+#10 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 D:\wamp\www\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 D:\wamp\www\Exoticnesia\index.php(13): CWebApplication->run()
+REQUEST_URI=/Exoticnesia/index.php?r=pengguna/update&id=farahs
+in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (207)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/18 15:58:37 [warning] [application] Failed to set unsafe attribute "avatar" of "Profil".
+in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (206)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/18 15:58:50 [warning] [application] Failed to set unsafe attribute "avatar" of "Profil".
+in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (206)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/18 16:05:57 [warning] [application] Failed to set unsafe attribute "avatar" of "Profil".
+in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (207)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/18 16:05:57 [error] [php] Attempt to assign property of non-object (D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php:211)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(133): PenggunaController->runAction()
+#3 D:\wamp\www\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 D:\wamp\www\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 D:\wamp\www\yii\framework\web\filters\CInlineFilter.php(58): PenggunaController->filterAccessControl()
+#6 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 D:\wamp\www\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 D:\wamp\www\yii\framework\web\CController.php(265): PenggunaController->runActionWithFilters()
+#9 D:\wamp\www\yii\framework\web\CWebApplication.php(282): PenggunaController->run()
+#10 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 D:\wamp\www\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 D:\wamp\www\Exoticnesia\index.php(13): CWebApplication->run()
+REQUEST_URI=/Exoticnesia/index.php?r=pengguna/update&id=farahs
+in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (211)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/18 16:07:19 [warning] [application] Failed to set unsafe attribute "avatar" of "Profil".
+in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (207)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/18 16:07:19 [error] [php] Attempt to assign property of non-object (D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php:212)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(133): PenggunaController->runAction()
+#3 D:\wamp\www\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 D:\wamp\www\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 D:\wamp\www\yii\framework\web\filters\CInlineFilter.php(58): PenggunaController->filterAccessControl()
+#6 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 D:\wamp\www\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 D:\wamp\www\yii\framework\web\CController.php(265): PenggunaController->runActionWithFilters()
+#9 D:\wamp\www\yii\framework\web\CWebApplication.php(282): PenggunaController->run()
+#10 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 D:\wamp\www\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 D:\wamp\www\Exoticnesia\index.php(13): CWebApplication->run()
+REQUEST_URI=/Exoticnesia/index.php?r=pengguna/update&id=farahs
+in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (212)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/18 16:07:30 [warning] [application] Failed to set unsafe attribute "avatar" of "Profil".
+in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (207)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/18 16:07:43 [warning] [application] Failed to set unsafe attribute "avatar" of "Profil".
+in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (207)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/18 16:10:59 [warning] [application] Failed to set unsafe attribute "avatar" of "Profil".
+in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (206)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/18 16:10:59 [warning] [application] Failed to set unsafe attribute "Nama Lengkap" of "Profil".
+in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (206)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/18 16:11:19 [warning] [application] Failed to set unsafe attribute "avatar" of "Profil".
+in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (206)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/18 16:11:19 [warning] [application] Failed to set unsafe attribute "Nama Lengkap" of "Profil".
+in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (206)
+in D:\wamp\www\Exoticnesia\index.php (13)
+=======
 2013/04/18 14:02:58 [warning] [application] Failed to set unsafe attribute "image" of "Urlpic".
 in C:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (205)
 in C:\wamp\www\Exoticnesia\index.php (13)
@@ -8272,6 +8367,7 @@ REQUEST_URI=/exoticnesia/index.php?r=infonesia/view&id=Test+error+8
 in C:\wamp\www\Exoticnesia\protected\views\infonesia\view.php (19)
 in C:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (69)
 in C:\wamp\www\Exoticnesia\index.php (13)
+<<<<<<< HEAD
 2013/04/18 15:25:16 [error] [exception.CException] exception 'CException' with message 'Property "Urlpic.[0]image" is not defined.' in C:\wamp\www\yii\framework\base\CComponent.php:130
 Stack trace:
 #0 C:\wamp\www\yii\framework\db\ar\CActiveRecord.php(143): CComponent->__get('[0]image')
@@ -8648,3 +8744,6 @@ Stack trace:
 #16 {main}
 REQUEST_URI=/exoticnesia/index.php?r=infonesia/view&id=Test+error+14
 ---
+=======
+>>>>>>> 8b7517be1a4d016dd5edcce43a54d9d770089c64
+>>>>>>> ded4578fec2408dbcee366b27463d4fafe3ff9b7
