@@ -212,17 +212,16 @@ class PenggunaController extends Controller
 			$path=Yii::app()->basePath . '/../images/avatar/';
 			// $profil->avatar = $foto->name;
 
-			if($model->save() && $model->validate()){ 
+			if($model->save()){ 
 				if(!empty($foto)){
 					$profil->avatar = $foto->name;
-					if($profil->save() && $profil->validate()) {
+					if($profil->save()) {
 						$foto->saveAs($path.$foto);
 						//$fotos=Foto::model()->updateAll(array('nama'=> $profil->nama), 'username="'.$profil->username.'"');
 					}
 				}
 				else{
 					$profil->save();
-					$profil->validate();
 					//$fotos=Foto::model()->updateAll(array('nama'=> $profil->nama), 'username="'.$profil->username.'"'); 
 				}
 
