@@ -27,34 +27,76 @@
 		<?php echo $form->textArea($model,'deskripsi',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'deskripsi'); ?>
 	</div>
+	
+	<div class="row">
 
+        <div id="imageHP">
+            <?php echo $form->labelEx(Urlpic::model(), 'gambar_daerah'); ?>
+            <?php
+            $countPic = 5;
+            $iPic = 0;
+            do {
+                ?> 
+                <div class="image_pick">
+                    <?php
+                    
+                        echo $form->fileField(Urlpic::model(), '[' . $iPic . ']gambar_daerah');
+
+                    //echo CHtml::listData(), 'ColID', 'Value');
+                    ?>
+                    
+                </div>
+
+                <?php
+                $iPic+=1;
+            } while ($iPic < $countPic);
+            ?> 
+        </div>
+
+        
+    </div>
+    
+    <!--
 	<div class="row">
 		<div id="imageDaerah">
-            <?php echo $form->labelEx(Urlpic::model(), 'image'); ?>
+            <?php echo $form->labelEx(Urlpic::model(), 'gambar_daerah'); ?>
             <h6> File tidak boleh kosong </h6>
             <div>
-            	<?php echo $form->fileField(Urlpic::model(), '[0]image');?>
-            	<?php echo $form->error(Urlpic::model(),'[0]image'); ?>
+            	<?php echo $form->fileField(Urlpic::model(), '[0]gambar_daerah');?>
+            	<?php echo $form->error(Urlpic::model(),'[0]gambar_daerah'); ?>
             </div>
             <div>
-            	<?php echo $form->fileField(Urlpic::model(), '[1]image');?>
-				<?php echo $form->error(Urlpic::model(),'[1]image'); ?>
+            	<?php echo $form->fileField(Urlpic::model(), '[1]gambar_daerah');?>
+				<?php echo $form->error(Urlpic::model(),'[1]gambar_daerah'); ?>
 			</div>
 			<div>
-	            <?php echo $form->fileField(Urlpic::model(), '[2]image');?>
-	            <?php echo $form->error(Urlpic::model(),'[2]image'); ?>
+	            <?php echo $form->fileField(Urlpic::model(), '[2]gambar_daerah');?>
+	            <?php echo $form->error(Urlpic::model(),'[2]gambar_daerah'); ?>
             </div>
             <div>
-	            <?php echo $form->fileField(Urlpic::model(), '[3]image');?>
-	            <?php echo $form->error(Urlpic::model(),'[3]image'); ?>
+	            <?php echo $form->fileField(Urlpic::model(), '[3]gambar_daerah');?>
+	            <?php echo $form->error(Urlpic::model(),'[3]gambar_daerah'); ?>
 	        </div>
 	        <div>
-	            <?php echo $form->fileField(Urlpic::model(), '[4]image');?>
-	            <?php echo $form->error(Urlpic::model(),'[4]image'); ?>
+	            <?php echo $form->fileField(Urlpic::model(), '[4]gambar_daerah');?>
+	            <?php echo $form->error(Urlpic::model(),'[4]gambar_daerah'); ?>
 	        </div>
         </div>
-	</div> 
-
+	</div> -->
+	<!--
+	<div class="row">
+       <?php echo $form->labelEx(Urlpic::model(),'gambar_daerah'); ?>
+       <?php $this->widget('CMultiFileUpload',array(
+           'name'=>'gambar_daerah',
+           'accept'=>'jpg|png',
+           'max'=>5,
+           'remove'=>Yii::t('ui','Remove'),
+           'denied'=>'type is not allowed', //message that is displayed when a file type is not allowed
+           'duplicate'=>'file appears twice', //message that is displayed when a file appears twice
+           'htmlOptions'=>array('size'=>25),
+       )); ?>
+       <?php echo $form->error($model,'product_images'); ?>
+   </div>-->
 	<div class="row">
 		<?php echo $form->labelEx($model,'kendaraan'); ?>
 		<?php echo $form->textArea($model,'kendaraan',array('rows'=>6, 'cols'=>50)); ?>

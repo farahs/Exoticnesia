@@ -169,8 +169,8 @@ class InfonesiaController extends Controller
 						// $item1->attributes = $isi;
 						
 						// $item1->namadaerah = $model->namadaerah;
-						$item1->validate();
-						$image = CUploadedFile::getInstance($item1, '['.$i.']image');
+						
+						$image = CUploadedFile::getInstance($item1, '['.$i.']gambar_daerah');
 						if(!empty($image))
                         {
                         	$gambar[$i]=$image;
@@ -180,17 +180,7 @@ class InfonesiaController extends Controller
 	                     	//echo $j;	
 	                     	$j+=1;
                         }
-						// if (!is_dir($path))
-      //                           Yii::app()->helper->createFolder($path);
-                     	
-      //                   if(!empty($image))
-      //                   {
-      //                   	$image->saveAs($path.$image);
-	     //                 	$item1->urlpic = $image->name;
-	     //                 	$item1->save(false);
-	     //                 	//echo $j;	
-	     //                 	$j+=1;
-      //                   }
+						
                         $i+=1;
                      	
 
@@ -213,14 +203,12 @@ class InfonesiaController extends Controller
                      	
                         if($j==5)
                         {
-                        	$gambar[$a]->saveAs($path.$gambar[$a]);
-	                     	$temp1->urlpic = $gambar[$a]->name;
-	                     	if($temp1->validate())
-	                     	{
+                        	
+	                        	$gambar[$a]->saveAs($path.$gambar[$a]);
+		                     	$temp1->urlpic = $gambar[$a]->name;
 	                     		$temp1->save(false);
 	                     		$a+=1;
-
-	                     	}
+	                     	
 	                     		
 	                     	//else 
 
@@ -229,16 +217,7 @@ class InfonesiaController extends Controller
                      	
 					}
 					
-					// for($a=0;$a<5;$a++)
-					// {
-					// 	if($j==5)
-					// 	{
-					// 		$item1[$a]->save();
-					// 		if (!is_dir($path))
-     //                             Yii::app()->helper->createFolder($path);
-     //                        $gambar[$a]->saveAs($path.$gambar[$a]);
-					// 	}
-					// }
+					 
 
 					if(isset($_POST['Penginapan']))
 					{
