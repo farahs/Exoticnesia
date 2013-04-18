@@ -34,10 +34,6 @@ $this->breadcrumbs=array(
 		<?php echo $form->labelEx($model,'password'); ?>
 		<?php echo $form->passwordField($model,'password'); ?>
 		<?php echo $form->error($model,'password'); ?>
-<<<<<<< HEAD
-=======
-
->>>>>>> 8b7517be1a4d016dd5edcce43a54d9d770089c64
 	</div>
 
 	<p> <?php echo CHtml::link('Lupa Password?', array('/pengguna/lupa'));?></p>
