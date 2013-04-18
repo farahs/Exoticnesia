@@ -8233,3 +8233,42 @@ in D:\wamp\www\Exoticnesia\index.php (13)
 in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (64)
 in D:\wamp\www\Exoticnesia\index.php (13)
 >>>>>>> 00fca26fad0322461fef6b59cda44319b0e7eccd
+2013/04/18 14:02:58 [warning] [application] Failed to set unsafe attribute "image" of "Urlpic".
+in C:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (205)
+in C:\wamp\www\Exoticnesia\index.php (13)
+2013/04/18 14:02:58 [warning] [application] Failed to set unsafe attribute "image" of "Urlpic".
+in C:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (205)
+in C:\wamp\www\Exoticnesia\index.php (13)
+2013/04/18 14:02:58 [warning] [application] Failed to set unsafe attribute "image" of "Urlpic".
+in C:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (205)
+in C:\wamp\www\Exoticnesia\index.php (13)
+2013/04/18 14:02:58 [warning] [application] Failed to set unsafe attribute "image" of "Urlpic".
+in C:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (205)
+in C:\wamp\www\Exoticnesia\index.php (13)
+2013/04/18 14:02:58 [warning] [application] Failed to set unsafe attribute "image" of "Urlpic".
+in C:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (205)
+in C:\wamp\www\Exoticnesia\index.php (13)
+2013/04/18 14:02:59 [error] [php] Undefined offset: 0 (C:\wamp\www\Exoticnesia\protected\views\infonesia\view.php:19)
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(869): InfonesiaController->renderFile()
+#1 C:\wamp\www\yii\framework\web\CController.php(782): InfonesiaController->renderPartial()
+#2 C:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php(69): InfonesiaController->render()
+#3 unknown(0): InfonesiaController->actionView()
+#4 C:\wamp\www\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#5 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 C:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(133): InfonesiaController->runAction()
+#8 C:\wamp\www\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\wamp\www\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#10 C:\wamp\www\yii\framework\web\filters\CInlineFilter.php(58): InfonesiaController->filterAccessControl()
+#11 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 C:\wamp\www\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\wamp\www\yii\framework\web\CController.php(265): InfonesiaController->runActionWithFilters()
+#14 C:\wamp\www\yii\framework\web\CWebApplication.php(282): InfonesiaController->run()
+#15 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\wamp\www\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#17 C:\wamp\www\Exoticnesia\index.php(13): CWebApplication->run()
+REQUEST_URI=/exoticnesia/index.php?r=infonesia/view&id=Test+error+8
+in C:\wamp\www\Exoticnesia\protected\views\infonesia\view.php (19)
+in C:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (69)
+in C:\wamp\www\Exoticnesia\index.php (13)
