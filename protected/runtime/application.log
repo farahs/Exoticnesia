@@ -8371,6 +8371,7 @@ in C:\wamp\www\Exoticnesia\index.php (13)
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 2013/04/18 15:25:16 [error] [exception.CException] exception 'CException' with message 'Property "Urlpic.[0]image" is not defined.' in C:\wamp\www\yii\framework\base\CComponent.php:130
 Stack trace:
 #0 C:\wamp\www\yii\framework\db\ar\CActiveRecord.php(143): CComponent->__get('[0]image')
@@ -8755,6 +8756,9 @@ REQUEST_URI=/exoticnesia/index.php?r=infonesia/view&id=Test+error+14
 >>>>>>> ded4578fec2408dbcee366b27463d4fafe3ff9b7
 =======
 >>>>>>> Update Infonesia Controller actioncreate
+=======
+>>>>>>> 8b7517be1a4d016dd5edcce43a54d9d770089c64
+>>>>>>> ded4578fec2408dbcee366b27463d4fafe3ff9b7
 =======
 >>>>>>> 8b7517be1a4d016dd5edcce43a54d9d770089c64
 >>>>>>> ded4578fec2408dbcee366b27463d4fafe3ff9b7
