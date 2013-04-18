@@ -34,6 +34,13 @@ $this->breadcrumbs=array(
 		<?php echo $form->labelEx($model,'password'); ?>
 		<?php echo $form->passwordField($model,'password'); ?>
 		<?php echo $form->error($model,'password'); ?>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+		
+>>>>>>> Update Infonesia Controller actioncreate
+=======
+>>>>>>> ded4578fec2408dbcee366b27463d4fafe3ff9b7
 	</div>
 
 	<p> <?php echo CHtml::link('Lupa Password?', array('/pengguna/lupa'));?></p>

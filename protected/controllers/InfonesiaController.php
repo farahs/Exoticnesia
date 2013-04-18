@@ -169,8 +169,13 @@ class InfonesiaController extends Controller
 						// $item1->attributes = $isi;
 						
 						// $item1->namadaerah = $model->namadaerah;
+<<<<<<< HEAD
 						
 						$image = CUploadedFile::getInstance($item1, '['.$i.']gambar_daerah');
+=======
+						// $item1->validate();
+						$image = CUploadedFile::getInstance($item1, '['.$i.']image');
+>>>>>>> Update Infonesia Controller actioncreate
 						if(!empty($image))
                         {
                         	$gambar[$i]=$image;
@@ -189,7 +194,10 @@ class InfonesiaController extends Controller
 					if($j==5)
 						$model->save();
 					$a=0;
+<<<<<<< HEAD
 
+=======
+>>>>>>> Update Infonesia Controller actioncreate
 					foreach ($array2 as $isi2) 
 					{	
 						$temp1 = new Urlpic;
@@ -203,6 +211,7 @@ class InfonesiaController extends Controller
                      	
                         if($j==5)
                         {
+<<<<<<< HEAD
                         	
 	                        	$gambar[$a]->saveAs($path.$gambar[$a]);
 		                     	$temp1->urlpic = $gambar[$a]->name;
@@ -218,6 +227,27 @@ class InfonesiaController extends Controller
 					}
 					
 					 
+=======
+                        	$gambar[$a]->saveAs($path.$gambar[$a]);
+	                     	$temp1->urlpic = $gambar[$a]->name;
+	                     	$temp1->save(false);	
+                        }
+                     		
+                     	$a+=1;
+
+					}
+					
+					// for($a=0;$a<5;$a++)
+					// {
+					// 	if($j==5)
+					// 	{
+					// 		$item1[$a]->save();
+					// 		if (!is_dir($path))
+     //                             Yii::app()->helper->createFolder($path);
+     //                        $gambar[$a]->saveAs($path.$gambar[$a]);
+					// 	}
+					// }
+>>>>>>> Update Infonesia Controller actioncreate
 
 					if(isset($_POST['Penginapan']))
 					{

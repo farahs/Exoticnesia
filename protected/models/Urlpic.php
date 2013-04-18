@@ -45,9 +45,13 @@ class Urlpic extends CActiveRecord
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('namadaerah, urlpic', 'safe', 'on'=>'search'),
+<<<<<<< HEAD
 
 			array('gambar_daerah','file','types'=>'jpeg,jpg,png','allowEmpty'=>false),
 
+=======
+			array('urlpic', 'file', 'types' => 'jpg, jpeg, gif, png', 'allowEmpty' => false),
+>>>>>>> Update Infonesia Controller actioncreate
 		);
 	}
 

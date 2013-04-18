@@ -6675,6 +6675,7 @@ in C:\wamp\www\Exoticnesia\index.php (13)
 2013/04/18 06:35:50 [warning] [application] Failed to set unsafe attribute "image" of "Urlpic".
 in C:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (205)
 in C:\wamp\www\Exoticnesia\index.php (13)
+<<<<<<< HEAD
 =======
 2013/04/16 12:03:55 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`exoticnesia`.`pengguna`, CONSTRAINT `pengguna_ibfk_1` FOREIGN KEY (`username`) REFERENCES `pengunjungterdaftar` (`username`)). The SQL statement executed was: DELETE FROM `pengunjungterdaftar` WHERE `pengunjungterdaftar`.`username`='dadadada'.
 in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (187)
@@ -8368,6 +8369,8 @@ in C:\wamp\www\Exoticnesia\protected\views\infonesia\view.php (19)
 in C:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (69)
 in C:\wamp\www\Exoticnesia\index.php (13)
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 2013/04/18 15:25:16 [error] [exception.CException] exception 'CException' with message 'Property "Urlpic.[0]image" is not defined.' in C:\wamp\www\yii\framework\base\CComponent.php:130
 Stack trace:
 #0 C:\wamp\www\yii\framework\db\ar\CActiveRecord.php(143): CComponent->__get('[0]image')
@@ -8744,6 +8747,14 @@ Stack trace:
 #16 {main}
 REQUEST_URI=/exoticnesia/index.php?r=infonesia/view&id=Test+error+14
 ---
+=======
+>>>>>>> 8b7517be1a4d016dd5edcce43a54d9d770089c64
+>>>>>>> ded4578fec2408dbcee366b27463d4fafe3ff9b7
+=======
+>>>>>>> 8b7517be1a4d016dd5edcce43a54d9d770089c64
+>>>>>>> ded4578fec2408dbcee366b27463d4fafe3ff9b7
+=======
+>>>>>>> Update Infonesia Controller actioncreate
 =======
 >>>>>>> 8b7517be1a4d016dd5edcce43a54d9d770089c64
 >>>>>>> ded4578fec2408dbcee366b27463d4fafe3ff9b7
