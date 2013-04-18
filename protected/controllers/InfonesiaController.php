@@ -153,11 +153,7 @@ class InfonesiaController extends Controller
 				$model->attributes = $_POST['Infonesia'];
 				
 				$model->username='admin';
-<<<<<<< HEAD
 				if($model->validate())
-=======
-				if($model->save()&&$model->validate())
->>>>>>> 00fca26fad0322461fef6b59cda44319b0e7eccd
 				{
 					
 					
@@ -173,7 +169,7 @@ class InfonesiaController extends Controller
 						// $item1->attributes = $isi;
 						
 						// $item1->namadaerah = $model->namadaerah;
-						// $item1->validate();
+						$item1->validate();
 						$image = CUploadedFile::getInstance($item1, '['.$i.']image');
 						if(!empty($image))
                         {
@@ -203,6 +199,7 @@ class InfonesiaController extends Controller
 					if($j==5)
 						$model->save();
 					$a=0;
+
 					foreach ($array2 as $isi2) 
 					{	
 						$temp1 = new Urlpic;
@@ -213,17 +210,23 @@ class InfonesiaController extends Controller
 						//$image = CUploadedFile::getInstance($item1, '['.$i.']image');
 						if (!is_dir($path))
                                 Yii::app()->helper->createFolder($path);
-<<<<<<< HEAD
                      	
                         if($j==5)
                         {
                         	$gambar[$a]->saveAs($path.$gambar[$a]);
 	                     	$temp1->urlpic = $gambar[$a]->name;
-	                     	$temp1->save(false);	
+	                     	if($temp1->validate())
+	                     	{
+	                     		$temp1->save(false);
+	                     		$a+=1;
+
+	                     	}
+	                     		
+	                     	//else 
+
                         }
                      		
-                     	$a+=1;
-
+                     	
 					}
 					
 					// for($a=0;$a<5;$a++)
@@ -236,18 +239,6 @@ class InfonesiaController extends Controller
      //                        $gambar[$a]->saveAs($path.$gambar[$a]);
 					// 	}
 					// }
-=======
-                     	if(!empty($image))
-                        {
-                        	$image->saveAs($path.$image);
-	                     	$item1->urlpic = $image->name;
-	                     	$item1->save(false);	
-                        }
-                     	
-						$i+=1;
-
-					}
->>>>>>> 00fca26fad0322461fef6b59cda44319b0e7eccd
 
 					if(isset($_POST['Penginapan']))
 					{
@@ -259,16 +250,11 @@ class InfonesiaController extends Controller
 							$item2->penginapan = $value;
 							$item2->namadaerah = $model->namadaerah;
 							//$item2->penginapan = $temp2->penginapan;
-<<<<<<< HEAD
 							if($j==5)
 							{
 								$item2->save();
 							}
 								
-=======
-							if($i=4)
-								$item2->save();
->>>>>>> 00fca26fad0322461fef6b59cda44319b0e7eccd
 						}
 					}
 					if(isset($_POST['Tempatmakan']))
@@ -280,21 +266,15 @@ class InfonesiaController extends Controller
 							$item3 = new Tempatmakan;
 							$item3->tempatmakan = $value2;
 							$item3->namadaerah = $model->namadaerah;
-<<<<<<< HEAD
 							if($j==5)
 							{
 								$item3->save();
 							}
 								
-=======
-							//$item2->penginapan = $temp2->penginapan;
-							if($i=4)
-								$item3->save();
->>>>>>> 00fca26fad0322461fef6b59cda44319b0e7eccd
 						}
 					}
 				}
-				if($j==5)
+				if($j==5&&$a==5)
 				{
 					$this->redirect(array('view','id'=>$model->namadaerah));
 				}	
