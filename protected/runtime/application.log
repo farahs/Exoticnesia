@@ -8762,3 +8762,18 @@ REQUEST_URI=/exoticnesia/index.php?r=infonesia/view&id=Test+error+14
 =======
 >>>>>>> 8b7517be1a4d016dd5edcce43a54d9d770089c64
 >>>>>>> ded4578fec2408dbcee366b27463d4fafe3ff9b7
+2013/04/19 04:15:28 [warning] [application] Failed to set unsafe attribute "gambar_daerah" of "Urlpic".
+in C:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (196)
+in C:\wamp\www\Exoticnesia\index.php (13)
+2013/04/19 04:15:28 [warning] [application] Failed to set unsafe attribute "gambar_daerah" of "Urlpic".
+in C:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (196)
+in C:\wamp\www\Exoticnesia\index.php (13)
+2013/04/19 04:15:28 [warning] [application] Failed to set unsafe attribute "gambar_daerah" of "Urlpic".
+in C:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (196)
+in C:\wamp\www\Exoticnesia\index.php (13)
+2013/04/19 04:15:28 [warning] [application] Failed to set unsafe attribute "gambar_daerah" of "Urlpic".
+in C:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (196)
+in C:\wamp\www\Exoticnesia\index.php (13)
+2013/04/19 04:15:28 [warning] [application] Failed to set unsafe attribute "gambar_daerah" of "Urlpic".
+in C:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (196)
+in C:\wamp\www\Exoticnesia\index.php (13)
