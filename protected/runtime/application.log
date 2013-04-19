@@ -8369,6 +8369,36 @@ in C:\wamp\www\Exoticnesia\protected\views\infonesia\view.php (19)
 in C:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (69)
 in C:\wamp\www\Exoticnesia\index.php (13)
 <<<<<<< HEAD
+>>>>>>> 8b7517be1a4d016dd5edcce43a54d9d770089c64
+2013/04/19 04:09:44 [warning] [application] Failed to set unsafe attribute "avatar" of "Profil".
+in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (206)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/19 04:09:44 [warning] [application] Failed to set unsafe attribute "Nama Lengkap" of "Profil".
+in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (206)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/19 04:10:05 [warning] [application] Failed to set unsafe attribute "avatar" of "Profil".
+in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (206)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/19 04:10:05 [warning] [application] Failed to set unsafe attribute "Nama Lengkap" of "Profil".
+in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (206)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/19 04:12:07 [warning] [application] Failed to set unsafe attribute "image" of "Urlpic".
+in D:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (206)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/19 04:12:07 [warning] [application] Failed to set unsafe attribute "image" of "Urlpic".
+in D:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (206)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/19 04:12:07 [warning] [application] Failed to set unsafe attribute "image" of "Urlpic".
+in D:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (206)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/19 04:12:07 [warning] [application] Failed to set unsafe attribute "image" of "Urlpic".
+in D:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (206)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/19 04:12:07 [warning] [application] Failed to set unsafe attribute "image" of "Urlpic".
+in D:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (206)
+in D:\wamp\www\Exoticnesia\index.php (13)
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -8762,6 +8792,7 @@ REQUEST_URI=/exoticnesia/index.php?r=infonesia/view&id=Test+error+14
 =======
 >>>>>>> 8b7517be1a4d016dd5edcce43a54d9d770089c64
 >>>>>>> ded4578fec2408dbcee366b27463d4fafe3ff9b7
+<<<<<<< HEAD
 2013/04/19 04:15:28 [warning] [application] Failed to set unsafe attribute "gambar_daerah" of "Urlpic".
 in C:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (196)
 in C:\wamp\www\Exoticnesia\index.php (13)
@@ -8777,3 +8808,24 @@ in C:\wamp\www\Exoticnesia\index.php (13)
 2013/04/19 04:15:28 [warning] [application] Failed to set unsafe attribute "gambar_daerah" of "Urlpic".
 in C:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (196)
 in C:\wamp\www\Exoticnesia\index.php (13)
+=======
+>>>>>>> 81f7a169ae6c7ff52f3337f29f8e1a9fe114dc16
+2013/04/19 04:26:56 [warning] [application] Failed to set unsafe attribute "gambar_daerah" of "Urlpic".
+in D:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (196)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/19 04:26:56 [warning] [application] Failed to set unsafe attribute "gambar_daerah" of "Urlpic".
+in D:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (196)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/19 04:26:56 [warning] [application] Failed to set unsafe attribute "gambar_daerah" of "Urlpic".
+in D:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (196)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/19 04:26:56 [warning] [application] Failed to set unsafe attribute "gambar_daerah" of "Urlpic".
+in D:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (196)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/19 04:26:56 [warning] [application] Failed to set unsafe attribute "gambar_daerah" of "Urlpic".
+in D:\wamp\www\Exoticnesia\protected\controllers\InfonesiaController.php (196)
+in D:\wamp\www\Exoticnesia\index.php (13)
+2013/04/19 04:31:09 [warning] [application] Failed to set unsafe attribute "foto" of "Foto".
+in D:\wamp\www\Exoticnesia\protected\controllers\PenggunaController.php (64)
+in D:\wamp\www\Exoticnesia\index.php (13)
+>>>>>>> b07c4ff55f0f955f8aa9f103956bc06e25dee736
